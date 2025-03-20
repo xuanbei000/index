@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自我介紹</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #298fca;
+      color: #1c98ad;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #d61f1f91;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #0b5bc4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #c40d0d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Hi，我是 劉宣貝！</h1>
+    <p>現在讀南台科技大學。</p>
+    <p>我的年齡：18 歲</p>
+    <p></p>
+
+    <button class="btn" id="introButton">點擊我</button>
+    <p id="welcomeMessage"></p>
+  </div>
+
+  <script>
+    document.getElementById("introButton").addEventListener("click", function() {
+      // 顯示歡迎訊息
+      document.getElementById("welcomeMessage").textContent = "歡迎來到我的自我介紹頁面！";
+      
+      // 顯示圖片
+      let image = document.getElementById("welcomeImage");
+      image.src = "https://t4.ftcdn.net/jpg/06/24/98/03/240_F_624980316_nvWImG0drHt5ZS4uNi9i0S9xrqQm5brx.jpg";  // 替換成你自己喜歡的圖片 URL
+      image.alt = "自我介紹圖片";  // 設定圖片的替代文字
+      image.style.display = "block";  // 顯示圖片
+    });
+  </script>
+
+</body>
+</html>
