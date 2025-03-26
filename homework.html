@@ -1,61 +1,152 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript作業</title>
-    <style>
-        div#myId {
-            width: 90%;
-            background-color: antiquewhite;
-            padding: 10px;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-        table, tr, td{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        table{
-            text-align:center;
-            margin: 0 auto;
-        }
-        td{
-            padding: 5px;
-            text-align: center;
-        }
-    </style>
-    <script>
-        function myFunction() {
-            var n = document.getElementById('numberInput').value;
-            // alert("輸入的數值是: " + n);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動態 N x N 乘法表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
-            var str="<table>";
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-            for (let i = 1; i <= n; i++) {
-                str+="<tr>";
-                for (let j = 1; j <= n; j++) {
-                    str+=`<td> ${i} * ${j} = ${i*j}</td>`;
-                }
-                str+="</tr>";
-            }
-            str+="</table>";
+    h1 {
+      color: #4CAF50;
+    }
 
-            document.getElementById("myId").innerHTML = str;
-        }
-    </script>
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      margin: 20px;
+      width: 100px;
+      text-align: center;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .table {
+      margin-top: 20px;
+      display: grid;
+      gap: 5px;
+      justify-items: center;
+    }
+
+    .cell {
+      padding: 10px;
+      background-color: #ddd;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .cell.header {
+      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* 綠色按鈕樣式 */
+    .nav-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .nav-buttons a {
+      padding: 12px 24px;
+      background-color: #28a745; /* 綠色按鈕 */
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 5px;
+      transition: background 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #218838; /* 滑鼠懸停變深綠 */
+    }
+
+  </style>
 </head>
-
 <body>
+
+  <div class="container">
+    <h1>N x N 乘法表</h1>
+    <label for="gridSize">輸入 N (乘法表大小):</label>
+    <input type="number" id="gridSize" min="1" value="5">
+    <button class="btn" id="generateTable">生成乘法表</button>
+
+    <div id="tableContainer" class="table"></div>
+  </div>
+
+  <script>
+    // 當用戶點擊生成乘法表按鈕時
+    document.getElementById("generateTable").addEventListener("click", function() {
+      const gridSize = parseInt(document.getElementById("gridSize").value);
+      const tableContainer = document.getElementById("tableContainer");
+
+      // 清空現有的表格
+      tableContainer.innerHTML = '';
+
+      // 設置 grid 布局
+      tableContainer.style.gridTemplateColumns = `repeat(${gridSize + 1}, 1fr)`; // 包含標題列
+
+      // 創建表格的行列
+      for (let i = 0; i <= gridSize; i++) {
+        for (let j = 0; j <= gridSize; j++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+
+          // 在第一行和第一列顯示標題
+          if (i === 0 && j === 0) {
+            cell.textContent = 'X';  // 左上角位置
+            cell.classList.add("header");
+          } else if (i === 0) {
+            cell.textContent = j;  // 顯示列標題
+            cell.classList.add("header");
+          } else if (j === 0) {
+            cell.textContent = i;  // 顯示行標題
+            cell.classList.add("header");
+          } else {
+            cell.textContent = i * j;  // 顯示乘法結果
+          }
+
+          tableContainer.appendChild(cell);
+        }
+      }
+    });
+  </script>
+
+  <div class="nav-buttons">
     <a href="index.html">首頁</a>
     <a href="about.html">關於我</a>
     <a href="research.html">研究</a>
     <a href="homework.html">作業</a>
-    <h1>N*N乘法表</h1>
-    <label for="numberInput">輸入一個數值:</label>
-    <input type="number" id="numberInput" placeholder="輸入一個數值" />
-    <input type="button" value="OK" title="OK" onclick="myFunction()" />
-    <div id="myId"></div>
-</body>
+  </div>
 
+</body>
 </html>

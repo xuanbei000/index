@@ -1,51 +1,116 @@
-<html lang="en"></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我的二三事</title>
+    <title>關於我的事</title>
     <style>
-        body{
-            background-color: lightgrey;
+        body {
+            background-color: #F9E3B8;  /* 淺黃色背景 */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #5D3A00;  /* 深棕色文字 */
+            text-align: center;  /* 整體文字置中 */
         }
+
+        .nav-buttons {
+            margin: 20px 0;
+        }
+
+        .nav-buttons a {
+            padding: 10px 20px;
+            background-color: #DB9501;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #BB7700;
+        }
+
+        h3 {
+            color: #111110;
+            font-size: 28px;
+            margin-top: 40px;
+        }
+
         table {
-            border: 1px solid pink;
+            margin: 30px auto;
             border-collapse: collapse;
+            width: 80%;
         }
 
         td {
-            margin: 10px;
+            padding: 15px;
+            text-align: center;  /* 使表格內容文字居中 */
+        }
+
+        td img {
+            border-radius: 8px;
+            max-width: 150px;  /* 控制圖片大小 */
+        }
+
+        .about-info {
+            background-color: #EBB85D;  /* 淺金色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;  /* 使內容居中 */
+        }
+
+        h4 {
+            font-size: 24px;
+            color: #DB9501;
+        }
+
+        ul {
+            text-align: center;  /* 使學歷列表居中 */
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 8px 0;
+            font-size: 18px;
         }
     </style>
+</head>
 
 <body>
-    <a href="index.html">首頁</a>
-    <a href="about.html">關於我</a>
-    <a href="research.html">研究</a>
-    <a href="homework.html">作業</a>
-    <h3>陳定宏 Ding-Horng Chen</h3>
-    <table>
-        <tr>
-            <td width="300px">
-                <ul>
-                    <li>南臺科技大學 資訊工程系副教授</li>
-                    <li>辦公室：C203-3</li>
-                    <li>電話：(06)2533131 ext 3222</li>
-                    <li>傳真：(06)2422310</li>
-                    <li>E-mail： chendh@stust.edu.tw</li>
-                    <li><a href="http://www.chendh.idv.tw/">個人網址</a></li>
-                </ul>
-            </td>
-            <td width="200px">
-                <img src="img/chendh-1217x1536.jpg" alt="陳定宏" width="200px" />
-            </td>
-        </tr>
-    </table>
+    <div class="nav-buttons">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我</a>
+        <a href="research.html">研究</a>
+        <a href="homework.html">作業</a>
+    </div>
+
+    <h3>劉宣貝</h3>
+
+    <div class="about-info">
+        <table>
+            <tr>
+                <td width="60%">
+                    <ul>
+                        <li>南臺科技大學 五專資工三甲</li>
+                        <li>E-mail： 5b1g0002@stust.edu.tw</li>
+                    </ul>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <h4>學歷</h4>
     <ul>
-        <li>成功大學 資訊工程研究所 博士</li>
-        <li>成功大學 資訊工程研究所 碩士</li>
-        <Li>成功大學 數學系</Li>
+        <li>國小：〇〇國小</li>
+        <li>國中：〇〇國中</li>
+        <li>現就讀：南臺科技大學 五專資工三甲</li>
     </ul>
 </body>
-
 </html>
