@@ -32,8 +32,8 @@
 
     .nav-buttons .btn {
       padding: 12px 18px;
-      background-color:#5A8693;
-      color:#ecf0f1;
+      background-color: #5A8693;
+      color: #ecf0f1;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -43,7 +43,7 @@
     }
 
     .nav-buttons .btn:hover {
-      background-color: #5A8693;
+      background-color: #4a7481;
     }
 
     h1 {
@@ -59,7 +59,7 @@
 
     .main-btn {
       padding: 12px 22px;
-      background-color:#5A8693;
+      background-color: #5A8693;
       color: white;
       border: none;
       border-radius: 5px;
@@ -70,12 +70,21 @@
     }
 
     .main-btn:hover {
-      background-color:#5A8693;
+      background-color: #4a7481;
+    }
+
+    #harryImage {
+      width: 300px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    #imageContainer {
+      display: none;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="nav-buttons">
       <a href="index.html" class="btn">首頁</a>
@@ -83,21 +92,23 @@
       <a href="research.html" class="btn">研究</a>
       <a href="homework.html" class="btn">作業</a>
       <a href="water.html" class="btn">水遊戲</a>
+      <a href="https://xuanbei000.github.io/app-0508/" class="btn" target="_blank">MY SLIDER</a>
     </div>
 
     <h1>Hi，歡迎來到自我介紹網站</h1>
-    <p></p>
-    <p></p>
-    
+
     <button class="main-btn" id="introButton">點擊我</button>
     <p id="welcomeMessage"></p>
+
+    <div id="imageContainer">
+      <img id="harryImage" src="harry.jpg" alt="Harry Potter Behind the Scenes">
+    </div>
   </div>
 
   <script>
-    document.getElementById("introButton").addEventListener("click", function() {
-      document.getElementById("welcomeMessage").textContent = "歡迎 點進來沒意義的按鈕!!!";
+    document.getElementById("introButton").addEventListener("click", function () {
+      document.getElementById("imageContainer").style.display = "block";
     });
   </script>
-
 </body>
 </html>
