@@ -1,138 +1,206 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>動態 N x N 乘法表</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      text-align: center;
+      font-family: 'Noto Sans TC', Arial, sans-serif;
+      background-color: #e6f1f5;
       margin: 0;
       padding: 0;
+      text-align: center;
+      color: #2b3e50;
     }
 
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 60px auto 40px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      color: #4CAF50;
+      color: #2c7da0;
+      font-size: 28px;
+      margin-bottom: 20px;
     }
 
     input[type="number"] {
       padding: 10px;
       font-size: 16px;
-      margin: 20px;
       width: 100px;
-      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 10px;
     }
 
     .btn {
       padding: 10px 20px;
-      background-color: #4CAF50;
+      background-color: #2c7da0;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+      transition: background 0.3s;
     }
 
     .btn:hover {
-      background-color: #45a049;
+      background-color: #236484;
     }
 
     .table {
-      margin-top: 20px;
+      margin-top: 30px;
       display: grid;
-      gap: 5px;
+      gap: 6px;
       justify-items: center;
     }
 
     .cell {
       padding: 10px;
-      background-color: #ddd;
-      border: 1px solid #ccc;
+      min-width: 50px;
+      background-color: #d4eaf1;
+      border-radius: 6px;
       text-align: center;
       font-size: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.4s forwards;
     }
 
     .cell.header {
       font-weight: bold;
-      background-color: #4CAF50;
+      background-color: #2c7da0;
       color: white;
     }
 
-    /* 綠色按鈕樣式 */
+    .cell.clicked {
+      background-color: #ffdf91 !important;
+      font-weight: bold;
+      animation: pulse 0.4s;
+    }
+
+    .input-area {
+      margin-bottom: 20px;
+    }
+
     .nav-buttons {
-      margin-top: 20px;
       text-align: center;
+      margin-top: 40px;
     }
 
     .nav-buttons a {
-      padding: 12px 24px;
-      background-color: #28a745; /* 綠色按鈕 */
+      padding: 10px 18px;
+      background-color: #2c7da0;
       color: white;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
       margin: 5px;
       transition: background 0.3s;
     }
 
     .nav-buttons a:hover {
-      background-color: #218838; /* 滑鼠懸停變深綠 */
+      background-color: #1f5678;
     }
 
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+
+      input[type="number"] {
+        width: 80px;
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
     <h1>N x N 乘法表</h1>
-    <label for="gridSize">輸入 N (乘法表大小):</label>
-    <input type="number" id="gridSize" min="1" value="5">
-    <button class="btn" id="generateTable">生成乘法表</button>
+
+    <div class="input-area">
+      <label for="gridSize">輸入 N：</label>
+      <input type="number" id="gridSize" min="1" value="5">
+      <button class="btn" id="generateTable">生成乘法表</button>
+    </div>
 
     <div id="tableContainer" class="table"></div>
   </div>
 
+  <div class="nav-buttons">
+    <a href="index.html">首頁</a>
+    <a href="about.html">關於我</a>
+    <a href="research.html">研究</a>
+    <a href="homework.html">作業</a>
+    <a href="water.html">水遊戲</a>
+    <a href="https://xuanbei000.github.io/app-0508/" target="_blank">MY SLIDER</a>
+  </div>
+
   <script>
-    // 當用戶點擊生成乘法表按鈕時
-    document.getElementById("generateTable").addEventListener("click", function() {
+    const tableContainer = document.getElementById("tableContainer");
+
+    document.getElementById("generateTable").addEventListener("click", function () {
       const gridSize = parseInt(document.getElementById("gridSize").value);
-      const tableContainer = document.getElementById("tableContainer");
-
-      // 清空現有的表格
       tableContainer.innerHTML = '';
+      tableContainer.style.gridTemplateColumns = `repeat(${gridSize + 1}, 1fr)`;
 
-      // 設置 grid 布局
-      tableContainer.style.gridTemplateColumns = `repeat(${gridSize + 1}, 1fr)`; // 包含標題列
-
-      // 創建表格的行列
       for (let i = 0; i <= gridSize; i++) {
         for (let j = 0; j <= gridSize; j++) {
           const cell = document.createElement("div");
           cell.classList.add("cell");
 
-          // 在第一行和第一列顯示標題
           if (i === 0 && j === 0) {
-            cell.textContent = 'X';  // 左上角位置
+            cell.textContent = 'X';
             cell.classList.add("header");
           } else if (i === 0) {
-            cell.textContent = j;  // 顯示列標題
+            cell.textContent = j;
             cell.classList.add("header");
           } else if (j === 0) {
-            cell.textContent = i;  // 顯示行標題
+            cell.textContent = i;
             cell.classList.add("header");
           } else {
-            cell.textContent = i * j;  // 顯示乘法結果
+            cell.textContent = i * j;
+
+            // 點擊時顯示動畫 + highlight
+            cell.addEventListener("click", () => {
+              cell.classList.add("clicked");
+              cell.textContent = `${i} × ${j} = ${i * j}`;
+              setTimeout(() => {
+                cell.classList.remove("clicked");
+                cell.textContent = i * j;
+              }, 1000);
+            });
           }
 
           tableContainer.appendChild(cell);
@@ -140,15 +208,6 @@
       }
     });
   </script>
-
-  <div class="nav-buttons">
-    <a href="index.html">首頁</a>
-    <a href="about.html">關於我</a>
-    <a href="research.html">研究</a>
-    <a href="homework.html">作業</a>
-    <a href="water.html" >水遊戲</a>
-    <a href="https://xuanbei000.github.io/app-0508/" class="btn" target="_blank">MY SLIDER</a>
-  </div>
 
 </body>
 </html>

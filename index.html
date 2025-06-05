@@ -1,86 +1,157 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet" />
   <title>自我介紹</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Noto Sans TC', sans-serif;
       background-color: #B3BEB0;
-      color: #5D3A00;
-      text-align: center;
+      color: #333;
       margin: 0;
       padding: 0;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #E8E5DE;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #F5F5F5;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: slideUp 1s ease-in-out;
     }
 
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
+    .nav-buttons .btn,
+.main-btn {
+  padding: 12px 20px;
+  background-color: #9CAAA3; /* 柔和灰綠色 */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-    .nav-buttons .btn {
-      padding: 12px 18px;
-      background-color: #5A8693;
-      color: #ecf0f1;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 25px; /* 水平與垂直間距更大 */
+  margin-bottom: 40px;
+}
 
-    .nav-buttons .btn:hover {
-      background-color: #4a7481;
-    }
+.nav-buttons .btn,
+.main-btn {
+  padding: 12px 24px;
+  background-color: #6B7D75; /* 深灰綠，穩重有質感 */
+  color: #fff;
+  border: 2px solid #5E6F67; /* 稍深的邊框 */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.nav-buttons .btn:hover,
+.main-btn:hover {
+  background-color: #55675F; /* hover 再深一點 */
+  transform: translateY(-2px);
+}
+
+
+
+.main-btn {
+  padding: 12px 24px;
+  background-color: #6B7D75; /* 深灰綠，穩重有質感 */
+  color: #fff;
+  border: 2px solid #5E6F67; /* 稍深的邊框 */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.nav-buttons .btn:hover,
+.main-btn:hover {
+  background-color: #55675F; /* hover 再深一點 */
+  transform: translateY(-2px);
+}
+
+
 
     h1 {
-      color: #111110;
-      font-family: "ZCOOL KuaiLe", serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #2C3E50;
+      margin-bottom: 25px;
     }
 
     p {
       font-size: 18px;
-      color: #0a0a0a;
-      font-family: "ZCOOL KuaiLe", serif;
-    }
-
-    .main-btn {
-      padding: 12px 22px;
-      background-color: #5A8693;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+      color: #222;
       margin-top: 20px;
-      transition: background 0.3s;
-    }
-
-    .main-btn:hover {
-      background-color: #4a7481;
+      line-height: 1.6;
     }
 
     #harryImage {
       width: 300px;
-      margin-top: 20px;
-      border-radius: 10px;
+      margin-top: 25px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
-    #imageContainer {
-      display: none;
+    #imageContainer.show img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #welcomeMessage::after {
+      content: "|";
+      animation: blink 1s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -101,13 +172,30 @@
     <p id="welcomeMessage"></p>
 
     <div id="imageContainer">
-      <img id="harryImage" src="harry.jpg" alt="Harry Potter Behind the Scenes">
+      <img id="harryImage" src="harry.jpg" alt="Harry Potter Behind the Scenes" />
     </div>
   </div>
 
   <script>
-    document.getElementById("introButton").addEventListener("click", function () {
-      document.getElementById("imageContainer").style.display = "block";
+    const introBtn = document.getElementById("introButton");
+    const message = document.getElementById("welcomeMessage");
+    const imageContainer = document.getElementById("imageContainer");
+
+    introBtn.addEventListener("click", () => {
+      const text = "ACTION！🧙‍♂️✨";
+      let i = 0;
+      message.textContent = "";
+
+      const typing = setInterval(() => {
+        if (i < text.length) {
+          message.textContent += text[i];
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 50);
+
+      imageContainer.classList.add("show");
     });
   </script>
 </body>

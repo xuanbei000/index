@@ -4,40 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>關於我的事</title>
-  <!-- 引入中文字型 -->
+  <!-- 字型 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
   <style>
     body {
-      background-color: #F9E3B8;
+      background-color: #DCEEF2;
       font-family: 'Noto Sans TC', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      color: #5D3A00;
+      color: #2B3E50;
       text-align: center;
+    }
+
+    /* 動畫定義 */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 1s ease-out;
     }
 
     .nav-buttons {
       margin: 20px 0;
+      animation: fadeUp 1s ease-out;
     }
 
     .nav-buttons a {
       padding: 10px 20px;
-      background-color: #DB9501;
+      background-color: #3A7CA5;
       color: white;
       border-radius: 5px;
       text-decoration: none;
       margin: 5px;
       font-size: 16px;
+      transition: background-color 0.3s;
     }
 
     .nav-buttons a:hover {
-      background-color: #BB7700;
+      background-color: #2F6D90;
     }
 
     h3 {
-      color: #111110;
-      font-size: 28px;
+      color: #2F6D90;
+      font-size: 32px;
       margin-top: 40px;
+      animation: fadeUp 1s ease-out 0.3s;
+      animation-fill-mode: both;
     }
 
     table {
@@ -58,15 +78,21 @@
     }
 
     .about-info {
-      background-color: #EBB85D;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      background-color: #F5FAFB;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      padding: 25px;
+      margin: 0 20px;
+      animation: fadeUp 1s ease-out 0.6s;
+      animation-fill-mode: both;
     }
 
     h4 {
-      font-size: 24px;
-      color: #cc811fe1;
+      font-size: 26px;
+      color: #3A7CA5;
+      margin-top: 30px;
+      animation: fadeUp 1s ease-out 0.9s;
+      animation-fill-mode: both;
     }
 
     ul {
@@ -74,12 +100,24 @@
       padding: 0;
       margin: 0 auto;
       display: inline-block;
-      text-align: left; /* 將文字內容靠左對齊，但整個區塊仍在中間 */
+      text-align: left;
     }
 
     ul li {
-      margin: 8px 0;
+      margin: 10px 0;
       font-size: 18px;
+      color: #2B3E50;
+    }
+
+    @media (max-width: 600px) {
+      table, td {
+        display: block;
+        width: 100%;
+      }
+
+      td {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -106,14 +144,14 @@
           </ul>
         </td>
         <td>
-          <!-- 這裡可以放圖片 -->
+          <!-- 可以放照片或圖示 -->
         </td>
       </tr>
     </table>
   </div>
 
   <h4>學歷</h4>
-  <div>
+  <div class="fade-up">
     <ul>
       <li>國小：海埔國小</li>
       <li>國中：崇明國中</li>
