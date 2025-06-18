@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>關於我的事</title>
-  <!-- 字型 -->
+  <title>劉宣貝的履歷</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -16,7 +15,6 @@
       text-align: center;
     }
 
-    /* 動畫定義 */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -52,77 +50,107 @@
       background-color: #2F6D90;
     }
 
-    h3 {
+    h1 {
+      font-size: 40px;
       color: #2F6D90;
-      font-size: 32px;
-      margin-top: 40px;
-      animation: fadeUp 1s ease-out 0.3s;
-      animation-fill-mode: both;
+      margin-top: 30px;
+      animation: fadeUp 1s ease-out 0.2s;
     }
 
-    table {
-      margin: 30px auto;
-      border-collapse: collapse;
-      width: 80%;
-    }
-
-    td {
-      padding: 15px;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    td img {
-      border-radius: 8px;
-      max-width: 150px;
-    }
-
-    .about-info {
+    .section {
       background-color: #F5FAFB;
-      border-radius: 12px;
+      border-radius: 16px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-      padding: 25px;
-      margin: 0 20px;
-      animation: fadeUp 1s ease-out 0.6s;
-      animation-fill-mode: both;
+      padding: 30px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 800px;
+      animation: fadeUp 1s ease-out;
     }
 
-    h4 {
+    h3 {
       font-size: 26px;
       color: #3A7CA5;
-      margin-top: 30px;
-      animation: fadeUp 1s ease-out 0.9s;
-      animation-fill-mode: both;
+      margin-bottom: 15px;
     }
 
     ul {
       list-style-type: none;
       padding: 0;
-      margin: 0 auto;
-      display: inline-block;
       text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     ul li {
       margin: 10px 0;
       font-size: 18px;
+      line-height: 1.6;
+    }
+
+    img.profile {
+      max-width: 150px;
+      border-radius: 50%;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .skill {
+      text-align: left;
+      margin: 15px auto;
+      max-width: 700px;
+    }
+
+    .skill span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
       color: #2B3E50;
     }
 
+    .progress-bar {
+      background-color: #E0E0E0;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 24px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .progress {
+      background-color: #3A7CA5;
+      color: white;
+      height: 100%;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 24px;
+      font-size: 14px;
+      border-radius: 20px 0 0 20px;
+      animation: grow 1.5s ease-out;
+    }
+
+    @keyframes grow {
+      from {
+        width: 0%;
+      }
+      to {
+        width: var(--progress);
+      }
+    }
+
     @media (max-width: 600px) {
-      table, td {
-        display: block;
-        width: 100%;
+      .section {
+        padding: 20px;
       }
 
-      td {
-        text-align: center;
+      h1 {
+        font-size: 32px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- 導覽列 -->
   <div class="nav-buttons">
     <a href="index.html">首頁</a>
     <a href="about.html">關於我</a>
@@ -132,30 +160,65 @@
     <a href="https://xuanbei000.github.io/app-0508/" target="_blank">MY SLIDER</a>
   </div>
 
-  <h3>劉宣貝</h3>
+  <!-- 網站標題 -->
+  <h1>劉宣貝的個人履歷</h1>
 
-  <div class="about-info">
-    <table>
-      <tr>
-        <td>
-          <ul>
-            <li>南臺科技大學 五專資工三甲</li>
-            <li>E-mail：5b1g0002@stust.edu.tw</li>
-          </ul>
-        </td>
-        <td>
-          <!-- 可以放照片或圖示 -->
-        </td>
-      </tr>
-    </table>
+  <!-- 自我介紹 -->
+  <div class="section">
+    <h3>自我介紹</h3>
+    <ul>
+      <li>就讀於南臺科技大學 五專資工三甲</li>
+      <li>我對程式用 HTML、CSS、JavaScript 打造有趣的網頁互動效果。</li>
+      <li>個性活潑開朗，喜歡挑戰新事物，也樂於與同學分享學習心得與技巧。</li>
+      <li>目前正在練習前端框架與網頁動畫設計，希望未來能成為一位能結合創意與技術的全端工程師。</li>
+      <li>E-mail：5b1g0002@stust.edu.tw</li>
+    </ul>
+  
   </div>
 
-  <h4>學歷</h4>
-  <div class="fade-up">
+  <!-- 學歷 -->
+  <div class="section">
+    <h3>學歷</h3>
     <ul>
       <li>國小：海埔國小</li>
       <li>國中：崇明國中</li>
       <li>現就讀：南臺科技大學 五專資工三甲</li>
+    </ul>
+  </div>
+
+  
+
+  <!-- 專業技能（含進度條） -->
+  <div class="section">
+    <h3>專業技能</h3>
+    <div class="skill">
+      <span>HTML5 / CSS3</span>
+      <div class="progress-bar"><div class="progress" style="width: 90%;">90%</div></div>
+    </div>
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
+    </div>
+    <div class="skill">
+      <span>Python</span>
+      <div class="progress-bar"><div class="progress" style="width: 65%;">65%</div></div>
+    </div>
+    <div class="skill">
+      <span>Git / GitHub</span>
+      <div class="progress-bar"><div class="progress" style="width: 75%;">75%</div></div>
+    </div>
+    <div class="skill">
+      <span>響應式網頁設計</span>
+      <div class="progress-bar"><div class="progress" style="width: 70%;">70%</div></div>
+    </div>
+  </div>
+
+  <!-- 未來目標 -->
+  <div class="section">
+    <h3>未來目標</h3>
+    <ul>
+      <li>希望能持續提升自己的程式能力，未來進入科技業發展。</li>
+      <li>夢想成為一位能獨立完成設計與開發的全端工程師。</li>
     </ul>
   </div>
 </body>
